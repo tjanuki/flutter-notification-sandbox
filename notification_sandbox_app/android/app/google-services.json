@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1042974769659",
+    "project_id": "flutter-sandbox-4e79e",
+    "storage_bucket": "flutter-sandbox-4e79e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1042974769659:android:121c46c719689fb7ee4b5e",
+        "android_client_info": {
+          "package_name": "com.example.notification_sandbox_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIizKxxM0N0f0pYZ_TaCtA1C1DG4DZyI4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
