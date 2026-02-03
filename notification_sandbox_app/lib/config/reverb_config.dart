@@ -11,10 +11,10 @@ class ReverbConfig {
     }
   }
 
-  static const int port = 8080;
+  static const int port = 8085;
 
   // This should match REVERB_APP_KEY in Laravel .env
-  static const String appKey = 'laravel-reverb-key';
+  static const String appKey = '2lacosnvire6l1gjitcj';
 
   // Cluster (not used for Reverb, but required by Pusher client)
   static const String cluster = 'mt1';
