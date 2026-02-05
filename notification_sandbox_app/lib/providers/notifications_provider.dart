@@ -67,8 +67,9 @@ class NotificationsNotifier extends StateNotifier<NotificationsState> {
     final response = await _apiClient.get<Map<String, dynamic>>('/notifications');
 
     if (response.success && response.data != null) {
-      final data = response.data!;
-      final notificationsJson = data['data'] as List<dynamic>? ?? [];
+      final responseData = response.data!;
+      final paginatedData = responseData['data'] as Map<String, dynamic>;
+      final notificationsJson = paginatedData['data'] as List<dynamic>? ?? [];
       final notifications = notificationsJson
           .map((json) => AppNotification.fromJson(json as Map<String, dynamic>))
           .toList();
@@ -92,7 +93,9 @@ class NotificationsNotifier extends StateNotifier<NotificationsState> {
     final response = await _apiClient.get<Map<String, dynamic>>('/notifications/unread-count');
 
     if (response.success && response.data != null) {
-      final count = response.data!['unread_count'] as int? ?? 0;
+      final responseData = response.data!;
+      final data = responseData['data'] as Map<String, dynamic>;
+      final count = data['count'] as int? ?? 0;
       state = state.copyWith(unreadCount: count);
     }
   }

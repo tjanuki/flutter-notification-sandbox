@@ -42,6 +42,10 @@ class WebSocketService {
       await _pusher!.init(
         apiKey: ReverbConfig.appKey,
         cluster: ReverbConfig.cluster,
+        host: ReverbConfig.host,
+        wsPort: ReverbConfig.port,
+        wssPort: ReverbConfig.port,
+        useTLS: ReverbConfig.useTLS,
         onConnectionStateChange: _onConnectionStateChange,
         onError: _onError,
         onAuthorizer: _onAuthorizer,

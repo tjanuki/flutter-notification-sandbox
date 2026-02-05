@@ -24,7 +24,8 @@ class AuthService {
     );
 
     if (response.success && response.data != null) {
-      final data = response.data!;
+      final responseData = response.data!;
+      final data = responseData['data'] as Map<String, dynamic>;
       final user = User.fromJson(data['user'] as Map<String, dynamic>);
       final token = data['token'] as String;
 
@@ -62,7 +63,8 @@ class AuthService {
     );
 
     if (response.success && response.data != null) {
-      final data = response.data!;
+      final responseData = response.data!;
+      final data = responseData['data'] as Map<String, dynamic>;
       final user = User.fromJson(data['user'] as Map<String, dynamic>);
       final token = data['token'] as String;
 
@@ -103,7 +105,9 @@ class AuthService {
     final response = await _apiClient.get<Map<String, dynamic>>('/user');
 
     if (response.success && response.data != null) {
-      final user = User.fromJson(response.data!);
+      final responseData = response.data!;
+      final data = responseData['data'] as Map<String, dynamic>;
+      final user = User.fromJson(data['user'] as Map<String, dynamic>);
       await SecureStorage.saveUserData(user.toJson());
       return ApiResponse.success(user, statusCode: response.statusCode);
     }
@@ -126,7 +130,9 @@ class AuthService {
     );
 
     if (response.success && response.data != null) {
-      final user = User.fromJson(response.data!['user'] as Map<String, dynamic>);
+      final responseData = response.data!;
+      final data = responseData['data'] as Map<String, dynamic>;
+      final user = User.fromJson(data['user'] as Map<String, dynamic>);
       await SecureStorage.saveUserData(user.toJson());
       return ApiResponse.success(user, statusCode: response.statusCode);
     }
