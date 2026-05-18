@@ -39,12 +39,12 @@ class WebSocketService {
     try {
       _pusher = PusherChannelsFlutter.getInstance();
 
+      // TODO: pusher_channels_flutter 2.4.0 dropped host/wsPort/wssPort.
+      // Reverb (self-hosted) cannot be reached until we downgrade the package
+      // or switch clients. Init left without custom host so the app still builds.
       await _pusher!.init(
         apiKey: ReverbConfig.appKey,
         cluster: ReverbConfig.cluster,
-        host: ReverbConfig.host,
-        wsPort: ReverbConfig.port,
-        wssPort: ReverbConfig.port,
         useTLS: ReverbConfig.useTLS,
         onConnectionStateChange: _onConnectionStateChange,
         onError: _onError,
